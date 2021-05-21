@@ -17,7 +17,7 @@ def entry_point():
 
 @app.route("/storage")
 def storage():
-    contents = list_files("flaskdrive")
+    contents = list_files(BUCKET)
     return render_template('storage.html', contents=contents)
 
 
