@@ -34,6 +34,6 @@ def list_files(bucket):
             print(item)
             contents.append(item)
     except Exception as e:
-        pass
+        print(e)
 
     return contents
