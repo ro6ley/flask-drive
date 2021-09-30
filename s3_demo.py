@@ -12,17 +12,6 @@ def upload_file(file_name, bucket):
     return response
 
 
-def download_file(file_name, bucket):
-    """
-    Function to download a given file from an S3 bucket
-    """
-    s3 = boto3.resource('s3')
-    output = f"downloads/{file_name}"
-    s3.Bucket(bucket).download_file(file_name, output)
-
-    return output
-
-
 def list_files(bucket):
     """
     Function to list files in a given S3 bucket
