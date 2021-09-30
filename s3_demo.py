@@ -31,7 +31,10 @@ def list_files(bucket):
     contents = []
     try:
         for item in s3.list_objects(Bucket=bucket)['Contents']:
-            print(item)
+            # https://stackoverflow.com/questions/52342974/serve-static-files-in-flask-from-private-aws-s3-bucket
+            item["url"] = s3.generate_presigned_url(
+                'get_object', Params = {'Bucket': bucket, 'Key': item['Key']},
+            )
             contents.append(item)
     except Exception as e:
         print(e)
