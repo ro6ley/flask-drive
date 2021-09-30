@@ -3,11 +3,11 @@ import os
 from flask import Flask, render_template, request, redirect, send_file, url_for
 
 from s3_demo import list_files, download_file, upload_file
+from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
-UPLOAD_FOLDER = "uploads"
-BUCKET = "insert_bucket_name_here"
+BUCKET=os.getenv('BUCKET')
 
 
 @app.route('/')
@@ -25,8 +25,8 @@ def storage():
 def upload():
     if request.method == "POST":
         f = request.files['file']
-        f.save(f.filename)
-        upload_file(f"{f.filename}", BUCKET)
+        f.save(secure_filename(f.filename))
+        upload_file(f"{secure_filename(f.filename)}", BUCKET)
 
         return redirect("/storage")
 

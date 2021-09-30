@@ -47,7 +47,7 @@ $ aws configure
 
 6. Run the application
 ```
-$ FLASK_APP=app.py FLASK_RUN_PORT=8080 FLASK_ENV=development FLASK_RUN_HOST=0.0.0.0 flask run
+$ BUCKET="insert_bucket_name_here" FLASK_APP=app.py FLASK_RUN_PORT=8080 FLASK_ENV=development FLASK_RUN_HOST=0.0.0.0 flask run
 ```
 
 7. Navigate to http://localhost:8080/storage

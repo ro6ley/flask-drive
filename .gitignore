@@ -1,6 +1,6 @@
 .sonarlint/**
 /uploads
-/download
+/download*
 __pycache__
 .env
 /venv
