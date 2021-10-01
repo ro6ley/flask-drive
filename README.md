@@ -1,4 +1,4 @@
-[![HitCount](http://hits.dwyl.io/ro6ley/flask-drive.svg)](http://hits.dwyl.io/ro6ley/flask-drive)
+[![HitCount](http://hits.dwyl.io/ro6ley/flask-drive.svg)](http://hits.dwyl.io/ro6ley/flask-drive)[![Docker Repository on Quay](https://quay.io/repository/denistrofimov/flask-drive/status "Docker Repository on Quay")](https://quay.io/repository/denistrofimov/flask-drive)
 
 # FlaskDrive 
 
@@ -71,6 +71,12 @@ docker run -p 5000:5000 -d -e AWS_ACCESS_KEY_ID="<Your_Access_Key>" -e AWS_SECRE
 ```
 
 Navigate to http://localhost:5000/storage
+
+### Get pre-baked container
+
+Pull this container with the following Docker command:
+
+        docker pull quay.io/denistrofimov/flask-drive
 
 ### Common errors
 
