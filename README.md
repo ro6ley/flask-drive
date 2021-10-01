@@ -1,4 +1,4 @@
-[![HitCount](http://hits.dwyl.io/ro6ley/flask-drive.svg)](http://hits.dwyl.io/ro6ley/flask-drive)
+[![HitCount](http://hits.dwyl.io/ro6ley/flask-drive.svg)](http://hits.dwyl.io/ro6ley/flask-drive)[![Docker Repository on Quay](https://quay.io/repository/denistrofimov/flask-drive/status "Docker Repository on Quay")](https://quay.io/repository/denistrofimov/flask-drive)
 
 # FlaskDrive 
 
@@ -19,26 +19,31 @@ Kindly ensure you have the following installed on your machine:
 ### Running the Application
 
 1. Clone the repository
+
 ```
 $ git clone https://github.com/ro6ley/flask-drive.git
 ```
 
 2. Check into the cloned repository
+
 ```
 $ cd flask-drive
 ```
 
 3. If you are using Pipenv, setup the virtual environment and start it as follows:
+
 ```
 $ pipenv install && pipenv shell
 ```
 
 4. Install the requirements
+
 ```
 $ pip install -r requirements.txt
 ```
 
 4. Configure AWS CLI
+
 ```
 $ aws configure
 ```
@@ -46,11 +51,39 @@ $ aws configure
 5. Create a bucket on AWS Dashboard and update it on the `app.py` file on line 10.
 
 6. Run the application
-```
-$ python app.py
+
+```sh
+$ BUCKET="insert_bucket_name_here" FLASK_APP=app.py FLASK_RUN_PORT=8080 FLASK_ENV=development FLASK_RUN_HOST=0.0.0.0 flask run
 ```
 
-7. Navigate to http://localhost:5000/storage
+7. Navigate to http://localhost:8080/storage
+
+
+## Docker container
+
+Required to have docker, git.
+
+### How to run the container locally
+
+```sh
+docker build -t flask-drive .
+docker run -p 5000:5000 -d -e AWS_ACCESS_KEY_ID="<Your_Access_Key>" -e AWS_SECRET_ACCESS_KEY="<Your_Secret_Key>" -e BUCKET="<Your_Bucket_Name>" flask-drive
+```
+
+Navigate to http://localhost:5000/storage
+
+### Get pre-baked container
+
+Pull this container with the following Docker command:
+
+        docker pull quay.io/denistrofimov/flask-drive
+
+### Common errors
+
+1. Bind for 0.0.0.0:5000 failed: port is already allocated
+
+select a different port, "docker run -p 8080:5000"
+Navigate to http://localhost:8080/storage
 
 ## Contribution
 
