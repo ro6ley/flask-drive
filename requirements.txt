@@ -3,7 +3,7 @@ boto3==1.9.235
 botocore==1.12.253
 click==7.1.2
 docutils==0.15.2
-flask==1.1.1
+flask==2.2.5
 itsdangerous==1.1.0
 jinja2==2.11.3
 jmespath==0.10.0
